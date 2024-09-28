@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import CartWidget from "../CartWidget/CartWidget";
-import logo from "../../../public/altoque.png"; // Asegúrate de que la ruta de la imagen sea correcta
+import logo from "../../../public/altoque.png";
 
 const NavBar = () => {
   return (

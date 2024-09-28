@@ -1,6 +1,6 @@
 import React from 'react';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import Badge from '@mui/material/Badge'; // Importar Badge desde Material UI
+import Badge from '@mui/material/Badge';
 
 const CartWidget = () => {
   const contadorCarrito = 1; 
