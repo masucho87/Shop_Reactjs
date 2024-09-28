@@ -1,0 +1,18 @@
+/* Navbar + logo */
+.nav-center {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  } 
+
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 20%;
+    margin-right: 10px; 
+    transition: transform 0.5s ease-in-out;
+    &:hover {
+        transform: scale(1.2);
+    }
+
+}
