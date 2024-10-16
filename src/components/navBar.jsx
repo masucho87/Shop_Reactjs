@@ -1,7 +1,10 @@
 import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import CartWidget from "../CartWidget/CartWidget";
-import logo from "../../../public/altoque.png";
+import CartWidget from "./CartWidget/CartWidget";
+import logo from "../../public/altoque.png";
+import '../navBar.css'
+
+
 
 const NavBar = () => {
   return (
@@ -13,7 +16,7 @@ const NavBar = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="nav-center">
+          <Nav className name="nav-center">
             <Nav.Link href="/">Inicio</Nav.Link>
             <Nav.Link href="/about">Productos</Nav.Link>
             <Nav.Link href="/services">Ofertas</Nav.Link>

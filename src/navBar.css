@@ -1,0 +1,16 @@
+.logo {
+    width: 30px;  
+    height: auto;
+    margin-right: 10px;
+    
+}
+
+.nav-center {
+    display: flex; 
+    justify-content: center; 
+    flex-grow: 1;
+}
+
+.nav-link {
+    margin: 0 5px; 
+}
