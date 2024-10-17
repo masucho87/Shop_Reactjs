@@ -3,7 +3,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Badge from '@mui/material/Badge';
 
 const CartWidget = () => {
-  const contadorCarrito = 1; 
+  const contadorCarrito = 2; 
 
   return (
     <div className="cart" style={{ display: 'flex', alignItems: 'center' }}>

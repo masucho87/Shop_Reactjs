@@ -18,7 +18,7 @@ function Products() {
         <div>
             <h1>Nuestros Productos</h1>
             {items.length > 0 ? (
-                <ItemList items={items} />
+                <ItemList items= {items} />
             ) : (
                 <p>Cargando productos...</p>
             )}
