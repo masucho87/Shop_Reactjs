@@ -18,9 +18,9 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className name="nav-center">
             <Nav.Link href="/">Inicio</Nav.Link>
-            <Nav.Link href="/about">Productos</Nav.Link>
-            <Nav.Link href="/services">Ofertas</Nav.Link>
-            <Nav.Link href="/contact">Contacto</Nav.Link>
+            <Nav.Link href="/productos">Productos</Nav.Link>
+            <Nav.Link href="/ofertas">Ofertas</Nav.Link>
+            <Nav.Link href="/contacto">Contacto</Nav.Link>
           </Nav>
           <CartWidget />
         </Navbar.Collapse>
