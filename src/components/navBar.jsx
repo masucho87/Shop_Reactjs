@@ -11,7 +11,7 @@ const NavBar = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg" className="fixed-top">
       <Container>
-        <Navbar.Brand href="/">
+        <Navbar.Brand as={Link} to="/">
         <img src={logo} alt="Logo" className="logo" />
           Al toque perro
         </Navbar.Brand>
