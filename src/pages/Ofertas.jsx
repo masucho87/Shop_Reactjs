@@ -4,13 +4,25 @@ import ItemList from "../components/itemList";
 
 function Ofertas() {
     const [items, setItems] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const fectchOfertas = () => {
-            setTimeout(() => {
-                setItems(ofertas);
-            }, 1000); 
+        const fectchOfertas = async () => {
+            setLoading(true); 
+            try {
+                const result = await new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve(ofertas);
+                    }, 1000); 
+                });
+                setItems(result);
+            } catch (error) {
+                console.error("Error al obtener los ofertas:", error);
+            } finally {
+                setLoading(false);
+            }
         };
+
         fectchOfertas();
     }, []);
 
@@ -18,7 +30,6 @@ function Ofertas() {
         <div>
             <h1>Nuestras Ofertas de esta semana</h1>
             {items.length > 0 ? (
-                // Pasamos el prop esOferta={true} para que el componente sepa que son ofertas
                 <ItemList items={items} esOferta={true} />
             ) : (
                 <p>Cargando ofertas...</p>

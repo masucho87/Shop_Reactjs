@@ -1,8 +1,9 @@
 import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import CartWidget from "./CartWidget/CartWidget";
+import CartWidget from "./CartWidget";
 import logo from "../img/altoque.png";
 import '../styles/navBar.css'
+import { Link } from 'react-router-dom'
 
 
 
@@ -17,10 +18,9 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className name="nav-center">
-            <Nav.Link href="/">Inicio</Nav.Link>
-            <Nav.Link href="/productos">Productos</Nav.Link>
-            <Nav.Link href="/Ofertas">Ofertas</Nav.Link>
-            <Nav.Link href="/contacto">Contacto</Nav.Link>
+            <Nav.Link as={Link} to="/productos">Productos</Nav.Link>
+            <Nav.Link as={Link} to="/Ofertas">Ofertas</Nav.Link>
+            <Nav.Link as={Link} to="/contacto">Contacto</Nav.Link>
           </Nav>
           <CartWidget />
         </Navbar.Collapse>
