@@ -1,16 +1,28 @@
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Mínimo 200px por tarjeta */
+    gap: 20px; /* Espacio entre las tarjetas */
+    padding: 20px;
+    width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
+}
+
 .custom-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    border: 1px solid red; /* Solo para ver el contorno de las tarjetas */
+    padding: 10px;
+    box-shadow: none; /* Desactiva la sombra para simplificar */
 }
 
 .card-image {
-    height: 150px;
-    object-fit: cover;
+    width: 100%; /* Ocupa el ancho del contenedor */
+    max-height: 150px; /* Limita la altura para que no sea demasiado alta */
+    object-fit: contain; /* Muestra la imagen completa sin cortarla */
+    object-position: center; /* Centra la imagen si es más pequeña */
+    border-bottom: 1px solid #ddd;
 }
 
 .precio-regular {
     text-decoration: line-through;
+    color: #000000;  
 }
 
 .precio-oferta {

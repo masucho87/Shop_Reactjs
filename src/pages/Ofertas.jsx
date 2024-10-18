@@ -7,8 +7,8 @@ function Ofertas() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const fectchOfertas = async () => {
-            setLoading(true); 
+        const fetchOfertas = async () => {
+            setLoading(true);
             try {
                 const result = await new Promise((resolve) => {
                     setTimeout(() => {
@@ -23,16 +23,18 @@ function Ofertas() {
             }
         };
 
-        fectchOfertas();
+        fetchOfertas();
     }, []);
 
     return (
         <div>
             <h1>Nuestras Ofertas de esta semana</h1>
-            {items.length > 0 ? (
+            {loading ? (  
+                <p>Cargando ofertas...</p>
+            ) : items.length > 0 ? (
                 <ItemList items={items} esOferta={true} />
             ) : (
-                <p>Cargando ofertas...</p>
+                <p>No hay ofertas disponibles.</p> 
             )}
         </div>
     );

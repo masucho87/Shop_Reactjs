@@ -4,10 +4,10 @@ import '../styles/Items.css';
 
 function Item({ item, esOferta }) {
     return (
-        <Card style={{ width: '18rem', height: '24rem' }} className="custom-card"> 
+        <Card style={{ maxWidth: '18rem', height: '24rem' }} className="custom-card"> 
             <Card.Img 
                 variant="top" 
-                src={item.imagen} 
+                src={item.Imagen} 
                 alt={item.Nombre} 
                 className="card-image" 
             />
@@ -28,7 +28,7 @@ function Item({ item, esOferta }) {
                         <span>Precio: ${item.Precio}</span>
                     )}
                 </Card.Text>
-                <Button variant="primary">Comprar</Button>
+                <Button variant="primary">Ver mas</Button>
             </Card.Body>
         </Card>
     );
