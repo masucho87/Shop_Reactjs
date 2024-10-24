@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
-import ItemList from "../components/itemList";
-import { productos } from "../data/productos";
+import React, { useState, useEffect } from 'react';
+import ItemList from '../components/itemList';
+import { productos } from '../data/productos';
+
 
 function Products() {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
+ 
+
 
     useEffect(() => {
         const fetchProductos = async () => {
@@ -13,7 +16,7 @@ function Products() {
                 const result = await new Promise((resolve) => {
                     setTimeout(() => {
                         resolve(productos);
-                    }, 1000); 
+                    }, 1000);
                 });
                 setItems(result);
             } catch (error) {

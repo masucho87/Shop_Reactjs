@@ -2,10 +2,11 @@ import React from 'react';
 import Item from './Item';
 import '../styles/Items.css'
 import { Container, Row, Col } from 'react-bootstrap';
- 
+
 
 function ItemList({ items, esOferta }) {
     console.log(esOferta); 
+
     return (
         <div Container="cards-container-">
             <Row>

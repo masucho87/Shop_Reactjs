@@ -1,22 +1,22 @@
 .cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Mínimo 200px por tarjeta */
-    gap: 20px; /* Espacio entre las tarjetas */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 20px;
     padding: 20px;
-    width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
+    width: 100%; 
 }
 
 .custom-card {
-    border: 1px solid red; /* Solo para ver el contorno de las tarjetas */
+    border: 1px solid red; 
     padding: 10px;
-    box-shadow: none; /* Desactiva la sombra para simplificar */
+    box-shadow: none; 
 }
 
 .card-image {
-    width: 100%; /* Ocupa el ancho del contenedor */
-    max-height: 150px; /* Limita la altura para que no sea demasiado alta */
-    object-fit: contain; /* Muestra la imagen completa sin cortarla */
-    object-position: center; /* Centra la imagen si es más pequeña */
+    width: 100%; 
+    max-height: 150px; 
+    object-fit: contain; 
+    object-position: center; 
     border-bottom: 1px solid #ddd;
 }
 
