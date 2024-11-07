@@ -1,29 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { cartContext } from '../context/cartContext';
 import ItemList from '../components/itemList';
-import { productos } from '../data/productos';
-
+import { getProductos } from '../firebase/db';
 
 function Products() {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
  
-
+    const valor = useContext(cartContext);
 
     useEffect(() => {
         const fetchProductos = async () => {
             setLoading(true); 
             try {
-                const result = await new Promise((resolve) => {
-                    setTimeout(() => {
-                        resolve(productos);
-                    }, 1000);
-                });
-                setItems(result);
+                
+                const result = await getProductos();
+                setItems(result); 
             } catch (error) {
                 console.error("Error al obtener los productos:", error);
             } finally {
                 setLoading(false);
-            }
+            }        
         };
 
         fetchProductos();

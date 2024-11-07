@@ -1,26 +1,26 @@
-import React, { useState, useEffect } from "react";
-import { ofertas } from '../data/ofertas';
-import ItemList from "../components/itemList";
+import React, { useState, useEffect, useContext } from 'react';
+import { cartContext } from '../context/cartContext';
+import ItemList from '../components/itemList';
+import { getOfertas } from '../firebase/db';
 
-function Ofertas() {
+function Oferta() {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
+ 
+    const valor = useContext(cartContext);
 
     useEffect(() => {
         const fetchOfertas = async () => {
-            setLoading(true);
+            setLoading(true); 
             try {
-                const result = await new Promise((resolve) => {
-                    setTimeout(() => {
-                        resolve(ofertas);
-                    }, 1000); 
-                });
-                setItems(result);
+                
+                const result = await getOfertas();
+                setItems(result); 
             } catch (error) {
-                console.error("Error al obtener los ofertas:", error);
+                console.error("Error al obtener los productos:", error);
             } finally {
                 setLoading(false);
-            }
+            }        
         };
 
         fetchOfertas();
@@ -40,4 +40,4 @@ function Ofertas() {
     );
 }
 
-export default Ofertas;
+export default Oferta;

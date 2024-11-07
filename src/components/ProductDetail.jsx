@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { productos } from '../data/productos';
+import { db } from '../firebase/config'; 
+import { doc, getDoc} from 'firebase/firestore';
 import Button from 'react-bootstrap/Button';
 import '../styles/ProductDetail.css';
 
@@ -8,10 +9,29 @@ function ProductDetail() {
     const { id } = useParams(); 
     const [product, setProduct] = useState(null);
     const [cartCount, setCartCount] = useState(0); 
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
     useEffect(() => {
-        
-        const foundProduct = productos.find(p => p.ID === parseInt(id));
-        setProduct(foundProduct);
+        const fetchProduct = async () => {
+            setLoading(true);
+            try {
+                const productRef = doc(db, 'productos', id);
+                const productSnap = await getDoc(productRef);
+                
+                if (productSnap.exists()) {
+                    setProduct(productSnap.data());
+                } else {
+                    setError("Producto no encontrado");
+                }
+            } catch (err) {
+                setError("Error al cargar el producto");
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchProduct();
     }, [id]);
 
     const incrementCount = () => {
@@ -24,7 +44,9 @@ function ProductDetail() {
         }
     };
 
-    if (!product) return <p>Producto no encontrado</p>; 
+    if (loading) return <p>Cargando producto...</p>;
+    if (error) return <p>{error}</p>; 
+    if (!product) return <p>Producto no encontrado</p>;
 
     return (
         <div className="product-detail-container">
@@ -46,7 +68,6 @@ function ProductDetail() {
                 <span className="counter-value">{cartCount}</span> 
                 <Button variant="outline-secondary" onClick={incrementCount}>+</Button>
             </div>
-
             <Button 
                 variant="success"
                 onClick={() => console.log(`${cartCount} producto(s) añadido(s) al carrito`)} 

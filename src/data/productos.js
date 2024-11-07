@@ -35,13 +35,12 @@ export const productos = [
     {
         ID: 4,
         Nombre: "Royal Canin Gato Húmedo Pollo",
-        Marca: "Royal Canin",
+        Marca: "Royal Cannig",
         Mascota: "Gato",
         Tipo: "Húmedo",
         Descripcion: "Alimento húmedo para gato adulto, sabor pollo",
         Precio: 900,
         Kilos: 1.5,
-        Imagen: "https://ba.pluspet.com.ar/cdn/shop/files/alimento-humedo-royal-canin-gato-pouch-renal-chicken-01.jpg?v=1728327491&"
     },
     {
         ID: 5,

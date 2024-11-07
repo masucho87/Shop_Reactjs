@@ -6,6 +6,7 @@ import ProductDetail from './components/ProductDetail';
 import NotFound from './pages/NotFound';
 import './styles/App.css';
 import Ofertas from './pages/Ofertas';
+import OfferDetail from './components/OfertaDetail'
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/productos" element={<Products />} />
           <Route path="/productos/:id" element={<ProductDetail />} />
-          <Route path="/ofertas/" element={<Ofertas />} />
+          <Route path="/ofertas" element={<Ofertas />} />
+          <Route path="/ofertas/:id" element={<OfferDetail />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

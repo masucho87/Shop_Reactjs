@@ -33,6 +33,7 @@ function Item({ item, esOferta }) {
                     variant="primary"
                     as={Link}
                     to={`/productos/${item.ID}`} 
+ 
                 >
                     Ver más
                 </Button>
