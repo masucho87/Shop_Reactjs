@@ -10,7 +10,7 @@ function Item({ item, esOferta }) {
                 variant="top" 
                 src={item.Imagen} 
                 alt={item.Nombre} 
-                className="card-image" 
+                className="card-image"
             />
             <Card.Body>
                 <Card.Title>{item.Nombre}</Card.Title>
@@ -32,8 +32,7 @@ function Item({ item, esOferta }) {
                 <Button 
                     variant="primary"
                     as={Link}
-                    to={`/productos/${item.ID}`} 
- 
+                    to={`/productos/${item.ID}`}  
                 >
                     Ver más
                 </Button>

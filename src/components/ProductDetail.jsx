@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { db } from '../firebase/config'; 
 import { doc, getDoc} from 'firebase/firestore';
 import Button from 'react-bootstrap/Button';
-import '../styles/ProductDetail.css';
+
 
 function ProductDetail() {
     const { id } = useParams(); 

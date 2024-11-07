@@ -3,6 +3,7 @@ import { cartContext } from '../context/cartContext';
 import ItemList from '../components/itemList';
 import { getProductos } from '../firebase/db';
 
+
 function Products() {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);

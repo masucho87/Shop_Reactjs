@@ -1,29 +1,49 @@
 .product-detail-container {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; 
 }
 
 .product-image {
-    max-width: 300px; 
-    margin: 20px 0; 
+    max-width: 300px;
+    margin: 20px 0;
 }
 
 .counter-container {
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    margin-top: 10px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Espacio entre los botones y el contador */
+    margin-top: 10px;
 }
 
 .counter-value {
-    margin: 0 10px; 
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
 }
 
 .add-to-cart-button {
-    margin-top: 20px; 
+    margin-top: 20px;
+    width: 100%; /* Hacer el botón del ancho completo del contenedor */
+    max-width: 200px; /* Limitar el ancho del botón */
 }
 
 .precio-oferta {
-    font-weight: bold; 
-    color: green; 
+    font-weight: bold;
+    color: green;
+}
+
+.offer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Espacio entre el precio regular y el precio de oferta */
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 150px;
 }
