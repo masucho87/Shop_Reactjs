@@ -14,3 +14,9 @@
 .nav-link {
     margin: 0 5px; 
 }
+
+.carrito {
+    font-size: 30px;
+    color: blue;
+    margin-left:700px; 
+}
