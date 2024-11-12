@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound';
 import './styles/App.css';
 import Ofertas from './pages/Ofertas';
 import OfferDetail from './components/OfertaDetail'
+import NavBar from './components/NavBar';
 
 function App() {
   return (
