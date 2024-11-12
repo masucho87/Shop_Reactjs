@@ -1,13 +1,12 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar';  // Solo esta línea es necesaria
 import Home from './pages/home';
 import Products from './pages/productos'; 
 import ProductDetail from './components/ProductDetail';
 import NotFound from './pages/NotFound';
 import './styles/App.css';
 import Ofertas from './pages/Ofertas';
-import OfferDetail from './components/OfertaDetail'
-import NavBar from './components/NavBar';
+import OfferDetail from './components/OfertaDetail';
 
 function App() {
   return (
