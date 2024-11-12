@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { db } from '../firebase/config'; 
-import { doc, getDoc} from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore';
 import Button from 'react-bootstrap/Button';
-
+import { CartContext } from '../context/cartContext';
 
 function ProductDetail() {
-    const { id } = useParams(); 
+    const { id } = useParams();
     const [product, setProduct] = useState(null);
-    const [cartCount, setCartCount] = useState(0); 
+    const [cartCount, setCartCount] = useState(0);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    const { addToCart } = useContext(CartContext);
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -34,18 +36,24 @@ function ProductDetail() {
         fetchProduct();
     }, [id]);
 
-    const incrementCount = () => {
-        setCartCount(cartCount + 1); 
-    };
+    const incrementCount = () => setCartCount(cartCount + 1);
+    const decrementCount = () => cartCount > 0 && setCartCount(cartCount - 1);
 
-    const decrementCount = () => {
-        if (cartCount > 0) {
-            setCartCount(cartCount - 1); 
+    const handleAddToCart = () => {
+        if (cartCount > 0 && product) {
+            
+            const productToAdd = { ...product, quantity: cartCount };
+            addToCart(productToAdd); 
+            console.log(`${cartCount} producto(s) añadido(s) al carrito`);
+            console.log(product.Nombre)
+           
+        } else {
+            console.log("Por favor, selecciona una cantidad.");
         }
     };
 
     if (loading) return <p>Cargando producto...</p>;
-    if (error) return <p>{error}</p>; 
+    if (error) return <p>{error}</p>;
     if (!product) return <p>Producto no encontrado</p>;
 
     return (
@@ -65,13 +73,14 @@ function ProductDetail() {
 
             <div className="counter-container">
                 <Button variant="outline-secondary" onClick={decrementCount}>-</Button>
-                <span className="counter-value">{cartCount}</span> 
+                <span className="counter-value">{cartCount}</span>
                 <Button variant="outline-secondary" onClick={incrementCount}>+</Button>
             </div>
+
             <Button 
                 variant="success"
-                onClick={() => console.log(`${cartCount} producto(s) añadido(s) al carrito`)} 
-                className="add-to-cart-button" 
+                onClick={handleAddToCart}  // Agregar producto al carrito
+                className="add-to-cart-button"
             >
                 Añadir al carrito
             </Button>

@@ -1,8 +1,7 @@
-// db.js
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore";
 import { app } from "./config";
 
-export const db = getFirestore(app); // Define y exporta `db` aquí
+export const db = getFirestore(app);
 
 export const getProductos = async () => {
   try {
@@ -31,3 +30,24 @@ export const getOfertas = async () => {
       throw error;
     }
   };
+
+  export { collection, addDoc };
+
+  //falta agregardo a una funcion
+  //Query a productos tipo Seco
+
+  // const tipoS = query(collection(db,'productos'), where("Tipo", "==", seco) )
+  
+  // const querySeco = await getDocs(tipoS)
+  // querySeco.forEach((doc) => {
+  //   console.log(doc.id, "=>", doc.data())
+  // })
+
+  //   //Query a productos tipo Humedo
+
+  //   const tipoH = query(collection(db,'productos'), where("Tipo", "==", humedo) )
+  
+  //   const queryHumedo = await getDocs(tipoH)
+  //   queryHumedo.forEach((doc) => {
+  //     console.log(doc.id, "=>", doc.data())
+  //   })

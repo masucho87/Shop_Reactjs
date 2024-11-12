@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { cartContext } from '../context/cartContext';
+import { CartContext } from '../context/cartContext';
 import ItemList from '../components/itemList';
 import { getOfertas } from '../firebase/db';
 
@@ -7,7 +7,7 @@ function Oferta() {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
  
-    const valor = useContext(cartContext);
+    const valor = useContext(CartContext);
 
     useEffect(() => {
         const fetchOfertas = async () => {
