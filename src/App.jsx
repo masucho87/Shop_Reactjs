@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import NavBar from './components/NavBar';  // Solo esta línea es necesaria
+import NavBar from './components/navBar';  // Solo esta línea es necesaria
 import Home from './pages/Home';
 import Products from './pages/productos'; 
 import ProductDetail from './components/ProductDetail';
