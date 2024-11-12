@@ -3,36 +3,43 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Badge from '@mui/material/Badge';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { CartContext } from '../context/cartContext'; 
-import '../styles/CartWidget.css';
-import { db, collection, addDoc } from '../firebase/db'; // Importar correctamente
+import '../styles/CartWidget.css'; 
+import { db } from '../firebase/db';
+import Swal from 'sweetalert2';
+import { collection, addDoc } from 'firebase/firestore'; 
 
 const CartWidget = () => {
   const { cart, removeFromCart } = useContext(CartContext);
   const [isCartVisible, setIsCartVisible] = useState(false);
 
   const contadorCarrito = cart.length;  
-
   const totalCompra = cart.reduce((total, product) => total + (product.Precio * product.quantity), 0);
 
   const toggleCartVisibility = () => {
     setIsCartVisible(!isCartVisible);
   };
-  
+
   const procederPago = async () => {
     try {
-      // Usando `addDoc` para agregar un nuevo documento a la colección "orders"
       const orderRef = await addDoc(collection(db, 'orders'), {
         products: cart,
         total: totalCompra,
         date: new Date()
       });
-
       const orderId = orderRef.id;
 
-      alert(`Compra realizada con éxito. ID de la compra: ${orderId}`);
+      Swal.fire({
+        icon: 'success',
+        title: 'Compra realizada con éxito',
+        text: `ID de la compra: ${orderId}`,
+      });
     } catch (error) {
       console.error('Error al procesar la compra:', error);
-      alert('Hubo un error al procesar la compra. Intenta nuevamente.');
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Hubo un error al procesar la compra. Intenta nuevamente.',
+      });
     }
   };
 
@@ -44,7 +51,7 @@ const CartWidget = () => {
       <span className="cart-text">Carrito</span>
 
       {isCartVisible && (
-        <div className="cart-dropdown">
+        <div className={`cart-dropdown ${isCartVisible ? 'visible' : ''}`}>
           <h4>Productos en el carrito</h4>
           {cart.length === 0 ? (
             <p>No hay productos en el carrito</p>

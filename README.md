@@ -7,9 +7,9 @@ Este proyecto es una aplicación de e-commerce desarrollada en React, que permit
 - **[React](https://react.dev/)**: Biblioteca para la creación de interfaces de usuario.
 - **[React Router](https://reactrouter.com/)**: Biblioteca para la navegación entre las diferentes páginas.
 - **[React Bootstrap](https://react-bootstrap.github.io/)** y **[Material-UI](https://mui.com/)**: Librerías de diseño y estilo de componentes.
+- **[SweetAlert](https://sweetalert.js.org/)**: Librería para mostrar alertas atractivas y personalizables.
 - **[Context API](https://react.dev/learn/passing-data-deeply-with-context)**: API de React para gestionar el estado global.
 - **JavaScript (ES6+)**: Lenguaje de programación utilizado para la lógica de la aplicación.
-
 
 ## Funcionalidades
 
@@ -17,6 +17,8 @@ Este proyecto es una aplicación de e-commerce desarrollada en React, que permit
 2. **Ofertas**: Página específica para productos en oferta.
 3. **Carrito de Compras**: Los usuarios pueden agregar productos al carrito y ver el total de artículos.
 4. **Gestión de Estado Global**: Se usa `Context API` para almacenar el estado del carrito en toda la aplicación.
+5. **Confirmación de Compra**: Al proceder con la compra, se utiliza SweetAlert para mostrar un mensaje de confirmación y vaciar el carrito.
+
 
 ## Estructura de Carpetas
 
@@ -105,6 +107,7 @@ const CartWidget = () => {
 };
 
 export default CartWidget;
+
 ``` 
 #### Agregar Productos al Carrito
 
@@ -147,6 +150,30 @@ Los estilos están en `src/styles/Items.css` para personalizar la presentación 
   height: 150px;
   object-fit: cover;
 }
+``` 
+
+## Funcionalidad de Confirmación de Compra con SweetAlert
+Cuando el usuario procede con la compra, el carrito se vacía y se muestra una alerta de confirmación usando SweetAlert.
+```bash
+import Swal from 'sweetalert2';
+
+const procederPago = () => {
+  Swal.fire({
+    title: '¿Estás seguro?',
+    text: '¿Deseas confirmar la compra?',
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonText: 'Confirmar',
+    cancelButtonText: 'Cancelar',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Vaciar el carrito después de la compra
+      setCart([]);
+      Swal.fire('Compra realizada', '¡Tu compra ha sido exitosa!', 'success');
+    }
+  });
+};
+
 ``` 
 
 

@@ -39,7 +39,7 @@ function ProductDetail() {
     const incrementCount = () => setCartCount(cartCount + 1);
     const decrementCount = () => cartCount > 0 && setCartCount(cartCount - 1);
 
-    const handleAddToCart = () => {
+    const EventAddToCart = () => {
         if (cartCount > 0 && product) {
             
             const productToAdd = { ...product, quantity: cartCount };
@@ -79,7 +79,7 @@ function ProductDetail() {
 
             <Button 
                 variant="success"
-                onClick={handleAddToCart}  // Agregar producto al carrito
+                onClick={EventAddToCart}
                 className="add-to-cart-button"
             >
                 Añadir al carrito
